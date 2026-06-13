@@ -22,7 +22,7 @@ esp-rtos = { version = "0.2.0", features = [
 defmt = "1.0.1"
 esp-bootloader-esp-idf = { version = "0.4.0", features = ["defmt", "esp32c3"] }
 
-embassy-net = { version = "0.7.1", features = [
+embassy-net = { version = "0.8.0", features = [
   "defmt",
   "dhcpv4",
   "medium-ethernet",
@@ -64,6 +64,22 @@ static_cell = "2.1.1"
 ssd1306 = { version = "0.10.0", features = ["async"] }
 display-interface = { version = "0.5.0", features = ["defmt-03"] }
 
+wifi-caddy = { version = "0.1.0", features = ["defmt"] }
+wifi-caddy-proc = { version = "0.1.0" }
+esp-wifi-caddy = { version = "0.1.0", features = [
+  "defmt",
+  "config",
+  "partition-table",
+] }
+serde = { version = "1.0", default-features = false, features = [
+  "derive",
+  "alloc",
+] }
+serde-json-core = "0.6"
+esp-storage = { version = "0.8.1", features = ["esp32c3", "defmt"] }
+enumset = { version = "1.1.13", features = ['defmt'] }
+embassy-sync = { version = "0.7.2", features = ["defmt"] }
+
 
 [profile.dev]
 # Rust debug is too slow.
@@ -78,3 +94,6 @@ incremental = false
 lto = 'fat'
 opt-level = 's'
 overflow-checks = false
+
+# [profile.dev.package.esp-storage]
+# opt-level = 3
